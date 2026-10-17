@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>LeagueLive — Live Football Scores</title>
+<meta name="description" content="LeagueLive: live football scores, league tables, goal scorers and team squads." />
+<meta name="theme-color" content="#0e1116" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar" id="topbar">
+      <div class="topbar-inner">
+        <button class="icon-btn" id="backBtn" aria-label="Back" hidden>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="brand" id="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-name">League<span>Live</span></span>
+        </div>
+        <div class="topbar-title" id="topTitle" hidden></div>
+        <div class="topbar-actions">
+          <a class="icon-btn" href="#/search" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </a>
+          <button class="icon-btn" id="refreshBtn" aria-label="Refresh" title="Refresh">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11a8 8 0 10-2.6 5.9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M20 5v6h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="statusline" id="statusline" hidden></div>
+    </header>
+
+    <main id="view" class="view" tabindex="-1"></main>
+
+    <nav class="tabbar" id="tabbar">
+      <a class="tab" href="#/" data-tab="matches">
+        <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3 9h18M12 9v11" stroke="currentColor" stroke-width="1.9"/></svg>
+        <span>Matches</span>
+      </a>
+      <a class="tab" href="#/leagues" data-tab="leagues">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 20V5h11v15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M15 9h5v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M7 8h5M7 12h5M7 16h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        <span>Leagues</span>
+      </a>
+      <a class="tab" href="#/scorers" data-tab="scorers">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 20V9m7 11V4m7 16v-7" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><circle cx="5" cy="6.5" r="2.3" fill="currentColor"/><circle cx="12" cy="3" r="2.3" fill="currentColor"/></svg>
+        <span>Scorers</span>
+      </a>
+      <a class="tab" href="#/search" data-tab="search">
+        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        <span>Search</span>
+      </a>
+      <a class="tab" href="#/my" data-tab="my">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0112 6.6a4.7 4.7 0 018.5 2.6C20.5 15 12 20.5 12 20.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+        <span>My Teams</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>
