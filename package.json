@@ -1,0 +1,23 @@
+{
+  "name": "leaguelive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LeagueLive — a lightweight, Fotmob-style football livescore & league table app with an admin backend.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node scripts/seed.js",
+    "export": "node scripts/export-static.js",
+    "reset": "node scripts/seed.js --force",
+    "postinstall": "node scripts/ensure-data.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "license": "MIT"
+}

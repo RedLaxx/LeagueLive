@@ -1,0 +1,14 @@
+{
+  "name": "LeagueLive — Live Football Scores",
+  "short_name": "LeagueLive",
+  "description": "Live football scores, league tables, goal scorers and squads.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

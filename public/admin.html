@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>LeagueLive — Admin</title>
+<meta name="theme-color" content="#0b0e13" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin">
+    <header class="adm-top">
+      <a class="adm-brand" href="./">
+        <span class="brand-dot"></span> League<span style="color:var(--accent)">Live</span>
+        <em>Admin</em>
+      </a>
+      <div class="adm-top-actions" id="admActions" hidden>
+        <span class="adm-status" id="admStatus"></span>
+        <button class="btn" id="btnExport">Export snapshot</button>
+        <button class="btn primary" id="btnPublish" hidden>Publish</button>
+        <button class="btn ghost" id="btnLogout">Sign out</button>
+      </div>
+    </header>
+
+    <div id="login" class="login-wrap">
+      <form class="login-card" id="loginForm">
+        <h1>LeagueLive Admin</h1>
+        <p class="muted">Sign in to update scores, players and fixtures.</p>
+        <label>Admin password
+          <input type="password" id="password" autocomplete="current-password" placeholder="••••••••" required />
+        </label>
+        <button class="btn primary block" type="submit">Sign in</button>
+        <p class="login-hint">Default password: <code>leaguelive</code> — change it by starting the server with <code>ADMIN_PASSWORD=…</code></p>
+        <p class="login-err" id="loginErr" hidden></p>
+      </form>
+    </div>
+
+    <div id="panel" hidden>
+      <nav class="adm-nav" id="admNav">
+        <button data-section="live" class="active">Live ticker</button>
+        <button data-section="matches">Matches</button>
+        <button data-section="fixtures">Fixtures</button>
+        <button data-section="teams">Teams &amp; squads</button>
+        <button data-section="leagues">Leagues</button>
+        <button data-section="data">Data</button>
+      </nav>
+      <main class="adm-main" id="admMain"></main>
+    </div>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">Edit</h2>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
